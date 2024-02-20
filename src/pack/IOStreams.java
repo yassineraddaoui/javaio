@@ -1,10 +1,12 @@
+package pack;
+
 import java.io.*;
 
 public class IOStreams {
-    public static  void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         try (
-                BufferedReader inputStream = new BufferedReader(new FileReader("file1.txt"));
-                BufferedWriter outputStream = new BufferedWriter(new FileWriter("file2.txt"))
+                var inputStream = new BufferedReader(new FileReader("file1.txt"));
+                var outputStream = new BufferedWriter(new FileWriter("file2.txt"))
         ) {
 
             new DataInputStream(new BufferedInputStream(new FileInputStream("")));
@@ -29,7 +31,8 @@ public class IOStreams {
         new PrintStream(new FileOutputStream("test"));
 
     }
-        static void  test(InputStream i ,OutputStream o){
 
-        }
+    static void test(InputStream i, OutputStream o) {
+
+    }
 }

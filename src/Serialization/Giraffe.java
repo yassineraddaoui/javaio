@@ -38,7 +38,7 @@ class Main {
 
     }
     public static void serialize(List<Giraffe> lg) throws IOException {
-        try (var out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("file1.txt")))) {
+        try (var out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("file.txt")))) {
             for (Giraffe o : lg) {
                 out.writeObject(o);
             }
@@ -46,7 +46,7 @@ class Main {
     }
     public static List<Giraffe> deserialize() throws IOException, ClassNotFoundException {
         List<Giraffe> lg=new ArrayList<>();
-        try (var in = new ObjectInputStream(new BufferedInputStream(new FileInputStream("file1.txt")))) {
+        try (var in = new ObjectInputStream(new BufferedInputStream(new FileInputStream("file.txt")))) {
             while(true){
                 var o = in.readObject();
                 if( o instanceof Giraffe g){

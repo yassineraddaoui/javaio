@@ -1,3 +1,5 @@
+package pack;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.Locale;
@@ -44,7 +46,7 @@ public class InteractWithUser {
             System.err.println("Console not available");
         }
     }
-    public static void writeWithConsole(){
+    public static void writeWithConsole() throws FileNotFoundException {
         Console console = System.console();
         console.writer()
                 .println("Salut from console");
@@ -53,6 +55,17 @@ public class InteractWithUser {
         console.printf("age = %d years ",23);
         console.writer().format(new Locale("fr", "CA"), "Hello World");
         console.writer().append("append");
+        var writer=console.writer();
+        writer.println();
+    }
+    private void echo() throws IOException {
+        var o = new FileWriter("new-zoo.txt");
+        try (var f = new FileReader("zoo-data.txt");
+             var b = new BufferedReader(f); o) {
+
+            o.write(b.readLine());
+        }
+        o.write("");
     }
     public static void readFromConsole(){
         Console console = System.console();
